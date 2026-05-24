@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visitor Dashboard</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            padding:20px;
+            background:#f4f4f4;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+        }
+
+        th, td{
+            border:1px solid #ccc;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background:#333;
+            color:white;
+        }
+
+        button{
+            padding:10px 15px;
+            border:none;
+            background:#333;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Visitor Dashboard</h1>
+
+    <h2>
+        Unique Visitors: {{ unique_visitors }}
+    </h2>
+
+    <a href="/export">
+        <button>
+            Export CSV
+        </button>
+    </a>
+
+    <br><br>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>IP Address</th>
+            <th>Browser</th>
+            <th>Operating System</th>
+            <th>Device</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Visit Time</th>
+        </tr>
+
+        {% for visitor in visitors %}
+
+        <tr>
+            <td>{{ visitor[0] }}</td>
+            <td>{{ visitor[1] }}</td>
+            <td>{{ visitor[2] }}</td>
+            <td>{{ visitor[3] }}</td>
+            <td>{{ visitor[4] }}</td>
+            <td>{{ visitor[5] }}</td>
+            <td>{{ visitor[6] }}</td>
+            <td>{{ visitor[7] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
